@@ -5,11 +5,11 @@ import { UseCaseCard } from './UseCaseCard';
 
 interface CategoryExplorerProps {
   useCases: UseCase[];
-  onTagClick: (tag: string) => void;
+  onToolClick: (tool: string) => void;
   onCategoryClick: (cat: string) => void;
 }
 
-export const CategoryExplorer: React.FC<CategoryExplorerProps> = ({ useCases, onTagClick, onCategoryClick }) => {
+export const CategoryExplorer: React.FC<CategoryExplorerProps> = ({ useCases, onToolClick, onCategoryClick }) => {
   const [expandedMajor, setExpandedMajor] = useState<string | null>(null);
 
   // Grouping logic - Fix: Explicitly define type as string[] to avoid 'unknown' inference in the map block
@@ -83,7 +83,7 @@ export const CategoryExplorer: React.FC<CategoryExplorerProps> = ({ useCases, on
                             <UseCaseCard 
                               key={uc.id} 
                               useCase={uc} 
-                              onTagClick={onTagClick} 
+                              onToolClick={onToolClick} 
                               onCategoryClick={onCategoryClick} 
                             />
                           ))}
@@ -110,7 +110,7 @@ export const CategoryExplorer: React.FC<CategoryExplorerProps> = ({ useCases, on
                         <UseCaseCard 
                           key={uc.id} 
                           useCase={uc} 
-                          onTagClick={onTagClick} 
+                          onToolClick={onToolClick} 
                           onCategoryClick={onCategoryClick} 
                         />
                       ))}

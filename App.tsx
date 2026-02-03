@@ -10,7 +10,7 @@ type ViewMode = 'explorer' | 'grid';
 const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTool, setSelectedTool] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('explorer');
 
   // Derived categories from data
@@ -27,23 +27,24 @@ const App: React.FC = () => {
         uc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         uc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         uc.faculty.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        uc.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+        uc.tools.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
       
       const matchesCategory = selectedCategory ? uc.categories.includes(selectedCategory) : true;
-      const matchesTag = selectedTag ? uc.tags.includes(selectedTag) : true;
+      const matchesTool = selectedTool ? uc.tools.includes(selectedTool) : true;
 
-      return matchesSearch && matchesCategory && matchesTag;
+      return matchesSearch && matchesCategory && matchesTool;
     });
-  }, [searchQuery, selectedCategory, selectedTag]);
+  }, [searchQuery, selectedCategory, selectedTool]);
 
   const resetFilters = () => {
     setSearchQuery('');
     setSelectedCategory(null);
-    setSelectedTag(null);
+    setSelectedTool(null);
   };
 
-  const isFiltering = searchQuery || selectedCategory || selectedTag;
+  const isFiltering = searchQuery || selectedCategory || selectedTool;
 
+  console.log("here")
   return (
     <div className="min-h-screen pb-20 selection:bg-indigo-100">
       {/* Header Section */}
@@ -113,9 +114,9 @@ const App: React.FC = () => {
                 Category: {selectedCategory} <i className="fa-solid fa-xmark ml-1.5 opacity-60"></i>
               </Badge>
             )}
-            {selectedTag && (
-              <Badge variant="outline" onClick={() => setSelectedTag(null)}>
-                Tag: #{selectedTag} <i className="fa-solid fa-xmark ml-1.5 opacity-60"></i>
+            {selectedTool && (
+              <Badge variant="outline" onClick={() => setSelectedTool(null)}>
+                Tool: {selectedTool} <i className="fa-solid fa-xmark ml-1.5 opacity-60"></i>
               </Badge>
             )}
             {searchQuery && (
@@ -156,7 +157,7 @@ const App: React.FC = () => {
             viewMode === 'explorer' ? (
               <CategoryExplorer 
                 useCases={filteredUseCases} 
-                onTagClick={(tag) => { setSelectedTag(tag); setViewMode('grid'); }}
+                onToolClick={(tool) => { setSelectedTool(tool); setViewMode('grid'); }}
                 onCategoryClick={(cat) => { setSelectedCategory(cat); setViewMode('grid'); }}
               />
             ) : (
@@ -165,7 +166,7 @@ const App: React.FC = () => {
                   <UseCaseCard 
                     key={uc.id} 
                     useCase={uc} 
-                    onTagClick={(tag) => setSelectedTag(tag)}
+                    onToolClick={(tool) => setSelectedTool(tool)}
                     onCategoryClick={(cat) => setSelectedCategory(cat)}
                   />
                 ))}

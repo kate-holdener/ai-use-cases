@@ -5,7 +5,7 @@ export interface UseCase {
   categories: string[];
   title: string;
   description: string;
-  tags: string[];
+  tools: string[];
 }
 
 export type Category = string;

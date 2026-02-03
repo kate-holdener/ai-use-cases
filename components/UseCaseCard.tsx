@@ -5,11 +5,11 @@ import { Badge } from './Badge';
 
 interface UseCaseCardProps {
   useCase: UseCase;
-  onTagClick: (tag: string) => void;
+  onToolClick: (tool: string) => void;
   onCategoryClick: (cat: string) => void;
 }
 
-export const UseCaseCard: React.FC<UseCaseCardProps> = ({ useCase, onTagClick, onCategoryClick }) => {
+export const UseCaseCard: React.FC<UseCaseCardProps> = ({ useCase, onToolClick, onCategoryClick }) => {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow">
       <div className="p-6 flex-grow">
@@ -37,9 +37,9 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({ useCase, onTagClick, o
       
       <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 mt-auto">
         <div className="flex flex-wrap gap-1.5">
-          {useCase.tags.map(tag => (
-            <Badge key={tag} variant="outline" onClick={() => onTagClick(tag)}>
-              #{tag}
+          {useCase.tools.map(tool => (
+            <Badge key={tool} variant="outline" onClick={() => onToolClick(tool)}>
+              #{tool}
             </Badge>
           ))}
         </div>
