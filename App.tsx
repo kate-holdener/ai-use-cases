@@ -54,7 +54,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-              GenAI <span className="text-indigo-600">Faculty Case Studies</span>
+              GenAI <span className="text-indigo-600"> in Higher Ed Case Studies</span>
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               Explore how educators are leveraging generative artificial intelligence to enhance curriculum design, personalize learning, and streamline administrative workflows.
