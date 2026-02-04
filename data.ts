@@ -4,7 +4,7 @@ import { UseCase } from './types';
 export const USE_CASES: UseCase[] = [
   {
     id: "2",
-    faculty: "Marcus",
+    faculty: "somebody@somewhere.com",
     categories: ["Assessment & Feedback"],
     title: "Generating Rubrics for Creative Writing",
     description: "Using LLMs to generate initial drafts of grading rubrics for subjective assignments. This helps standardize feedback while ensuring specific learning outcomes are addressed in creative projects.",
