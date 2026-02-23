@@ -4,6 +4,7 @@ import { USE_CASES } from './data';
 import { UseCaseCard } from './components/UseCaseCard';
 import { Badge } from './components/Badge';
 import { CategoryExplorer } from './components/CategoryExplorer';
+import { ExternalResources } from './components/ExternalResources';
 
 type ViewMode = 'explorer' | 'grid';
 
@@ -56,7 +57,7 @@ const App: React.FC = () => {
               GenAI in CS Education<span className="text-indigo-600">  Case Studies</span>
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              Explore how educators are leveraging generative artificial intelligence to enhance curriculum design, personalize learning, and streamline administrative workflows.
+              Explore how computer science educators are leveraging generative artificial intelligence to enhance curriculum design, personalize learning, and streamline administrative workflows.
             </p>
           </div>
 
@@ -188,6 +189,9 @@ const App: React.FC = () => {
           )}
         </div>
       </main>
+
+      {/* External Resources Section */}
+      <ExternalResources />
 
       {/* Stats / Footer Area */}
       <footer className="mt-20 border-t border-slate-200 py-16 bg-white relative">
