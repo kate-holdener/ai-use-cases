@@ -26,7 +26,6 @@ const App: React.FC = () => {
       const matchesSearch = 
         uc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         uc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        uc.faculty.toLowerCase().includes(searchQuery.toLowerCase()) ||
         uc.tools.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
       
       const matchesCategory = selectedCategory ? uc.categories.includes(selectedCategory) : true;
@@ -54,7 +53,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
-              GenAI in Higher Ed<span className="text-indigo-600">  Case Studies</span>
+              GenAI in CS Education<span className="text-indigo-600">  Case Studies</span>
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               Explore how educators are leveraging generative artificial intelligence to enhance curriculum design, personalize learning, and streamline administrative workflows.
@@ -68,7 +67,7 @@ const App: React.FC = () => {
                 <i className="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                 <input 
                   type="text"
-                  placeholder="Search by title, faculty, or content..."
+                  placeholder="Search by title or content..."
                   className="w-full pl-11 pr-4 py-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-indigo-500 transition-all text-slate-800 placeholder-slate-400"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -199,11 +198,10 @@ const App: React.FC = () => {
                 <i className="fa-solid fa-brain text-white text-2xl"></i>
               </div>
               <div>
-                <h4 className="font-extrabold text-xl text-slate-900">GenAI Education Collective</h4>
-                <p className="text-slate-500">Empowering faculty through shared innovation.</p>
+                <h4 className="font-extrabold text-xl text-slate-900">GenAI in CS Education</h4>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-10 md:gap-16">
+            <div className="grid grid-cols-2 gap-10 md:gap-16">
                <div className="text-center">
                  <p className="text-3xl font-black text-indigo-600">{USE_CASES.length}</p>
                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Case Studies</p>
@@ -211,10 +209,6 @@ const App: React.FC = () => {
                <div className="text-center">
                  <p className="text-3xl font-black text-indigo-600">{categories.length}</p>
                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Categories</p>
-               </div>
-               <div className="text-center">
-                 <p className="text-3xl font-black text-indigo-600">{Array.from(new Set(USE_CASES.map(u => u.faculty))).length}</p>
-                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Contributors</p>
                </div>
             </div>
           </div>

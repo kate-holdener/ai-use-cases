@@ -21,9 +21,6 @@ export const UseCaseCard: React.FC<UseCaseCardProps> = ({ useCase, onToolClick, 
               </Badge>
             ))}
           </div>
-          <span className="text-xs text-slate-400 font-medium bg-slate-50 px-2 py-1 rounded border border-slate-100">
-            {useCase.faculty}
-          </span>
         </div>
         
         <h3 className="text-xl font-bold text-slate-800 mb-2 leading-tight">
